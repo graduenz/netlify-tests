@@ -1,0 +1,3 @@
+build:
+	if not exist dist/functions mkdir dist/functions
+	go build -o functions/ ./...
