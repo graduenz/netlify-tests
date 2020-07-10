@@ -2,3 +2,6 @@
   command="make build"
   functions="dist/functions"
   publish="dist/site"
+
+[build.environment]
+  GO_IMPORT_PATH = "github.com/graduenz/netlify-tests"
