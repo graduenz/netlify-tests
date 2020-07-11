@@ -1,0 +1,4 @@
+baseURL = "http://netlify.guilhermeraduenz.dev/"
+languageCode = "en-us"
+title = "graduenz on Netlify"
+theme = "etch"

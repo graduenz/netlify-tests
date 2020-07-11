@@ -14,4 +14,16 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-dist/
+functions/
+
+### Hugo ###
+# Generated files by hugo
+/src/public/
+/src/resources/_gen/
+
+# Executable may be added to repository
+src/hugo.exe
+src/hugo.darwin
+src/hugo.linux
+
+# End of https://www.toptal.com/developers/gitignore/api/hugo
