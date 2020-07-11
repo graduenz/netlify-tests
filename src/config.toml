@@ -58,3 +58,9 @@ copyright = "© {year}"
   name = "blog"
   title = "Blog"
   url = "/blog"
+
+[[menu.main]]
+  identifier = "auth"
+  name = "auth"
+  title = "Authenticate"
+  url = "/auth"
