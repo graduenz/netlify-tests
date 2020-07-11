@@ -2,7 +2,7 @@
 theme = "hugo-theme-codex" 
 
 # Override these settings with your own
-baseURL = "http://netlify.guilhermeraduenz.dev/"
+baseURL = "https://netlify.guilhermeraduenz.dev/"
 title = "graduenz on Netlify"
 languageCode = "en-us"
 copyright = "© {year}"
