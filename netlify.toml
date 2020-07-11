@@ -1,7 +1,35 @@
 [build]
-  command="make build"
-  functions="functions"
-  publish="src/public"
+  command = "make build"
+  functions = "functions"
+  publish = "src/public"
 
 [build.environment]
+  HUGO_VERSION = "0.73.0"
   GO_IMPORT_PATH = "github.com/graduenz/netlify-tests"
+
+[context.production.environment]
+  HUGO_VERSION = "0.73.0"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+
+[context.split1]
+  command = "hugo --gc --minify --enableGitInfo --source src"
+
+[context.split1.environment]
+  HUGO_VERSION = "0.73.0"
+  HUGO_ENV = "production"
+
+[context.deploy-preview]
+  command = "hugo --gc --minify --buildFuture --source src -b $DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+  HUGO_VERSION = "0.73.0"
+
+[context.branch-deploy]
+  command = "hugo --gc --minify --source src -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+  HUGO_VERSION = "0.73.0"
+
+[context.next.environment]
+  HUGO_ENABLEGITINFO = "true"
