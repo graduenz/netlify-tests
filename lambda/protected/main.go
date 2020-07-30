@@ -2,19 +2,12 @@ package main
 
 import (
 	"context"
-	"encoding/base64"
-	"encoding/json"
 	"fmt"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-lambda-go/lambdacontext"
-	"github.com/netlify/gotrue/models"
 )
-
-type netlify struct {
-	user models.User `json:"user",omitempty`
-}
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	lc, ok := lambdacontext.FromContext(ctx)
@@ -27,20 +20,18 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 
 	cc := lc.ClientContext
 
-	netlifyJSON, _ := base64.StdEncoding.DecodeString(cc.Custom["netlify"])
-	netlify := netlify{}
-	netlifyUser := json.Unmarshal([]byte(netlifyJson), &netlify)
+	fmt.Println("client")
+	fmt.Println(cc.Client)
 
-	if netlify.user == nil {
-		return &events.APIGatewayProxyResponse{
-			StatusCode: 400,
-			Body:       "Don't know you bro :/",
-		}, nil
-	}
+	fmt.Println("env")
+	fmt.Println(cc.Env)
+
+	fmt.Println("custom")
+	fmt.Println(cc.Custom)
 
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
-		Body:       fmt.Sprintf("Hello, %s", netlify.user.Email),
+		Body:       "Hello, wait",
 	}, nil
 }
 
